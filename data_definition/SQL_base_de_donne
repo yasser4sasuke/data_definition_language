@@ -1,0 +1,30 @@
+creaction de base de donne 
+CREATE DATABASE Store;
+
+creaction de table customer
+CREATE TABLE customer ( 
+customer_id int(20) PRIMARY KEY, 
+customer_name varchar(20) NOT NULL, 
+customer_tel int(20) 
+);
+
+
+CREACTION DE TABLE PRODUCT
+CREATE TABLE product ( 
+product_id int(20) PRIMARY KEY, 
+product_name varchar(20) NOT NULL, 
+product_price int(20), 
+product_gategory varchar(20) 
+);
+
+
+CREACTION DE TABLE ORDERS 
+CREATE TABLE orders ( 
+customer_id varchar(20), 
+product_id varchar(20), 
+quantity int, 
+total_amount int,
+order_date DATE,
+CONSTRAINT fkcustomer FOREIGN KEY (customer_id) REFERENCES orders (customer_id),
+CONSTRAINT fkproduct FOREIGN KEY (product_id) REFERENCES orders (product_id)
+);
